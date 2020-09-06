@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Índice de massa corporal</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <h:outputLabel value="Calculadora do IMC"/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Peso" for="peso" />
+                <h:inputText id="peso" value="#{imcCDIBean.imc.peso}"/>
+                <h:outputLabel value="Altura" for="altura"/>
+                <h:inputText id="altura" value="#{imcCDIBean.imc.altura}"/> 
+            </h:panelGrid>            
+            <h:commandButton value="Calcular" action="#{imcCDIBean.resultadoIMC}">
+                <f:ajax execute="@form" render="@form"/> 
+            </h:commandButton>  
+            <hr/>
+            <h:outputText id="resultadoObtido" value="#{imcCDIBean.imc.resultado}"/>
+        </h:form>
+    </h:body>
+</html>
+
